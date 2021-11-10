@@ -1,0 +1,17 @@
+name: DropGNN
+channels:
+  - pytorch
+  - rusty1s
+  - nvidia
+  - conda-forge
+dependencies:
+  - pip
+  - python=3.8
+  - pytorch=1.9
+  - cudatoolkit=11.1
+  - numpy=1.21
+  - networkx=2.5
+  - matplotlib
+  - pytorch-geometric=1.7
+  - pip:
+    - test_tube
