@@ -1,5 +1,5 @@
 # DropGNN
-This is the official implementation of [DropGNN: Random Dropouts Increase the Expressiveness of Graph Neural Networks](https://tik-db.ee.ethz.ch/file/c53f25248878df51adcec5465180b92b/GNN_Dropouts.pdf)
+This is the official implementation of [DropGNN: Random Dropouts Increase the Expressiveness of Graph Neural Networks](https://arxiv.org/abs/2111.06283)
 as described in the following NeurIPS 2021 paper:
 ```
 @InProceedings{papp2021dropgnn,
