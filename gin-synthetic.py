@@ -471,7 +471,7 @@ def main(args, cluster=None):
             loss.backward()
             loss_all += data.num_graphs * loss.item()
             optimizer.step()
-        return loss_all / len(loader.dataset)
+        return loss_all / n
 
     def test(loader):
         model.eval()

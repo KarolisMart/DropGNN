@@ -241,6 +241,7 @@ def main(args, cluster=None):
     def train(epoch, loader, optimizer):
         model.train()
         loss_all = 0
+        n = 0
         for data in loader:
             data = data.to(device)
             optimizer.zero_grad()
@@ -251,8 +252,9 @@ def main(args, cluster=None):
                 loss = 0.75*loss + 0.25*aux_loss
             loss.backward()
             loss_all += data.num_graphs * loss.item()
+            n += len(data.y)
             optimizer.step()
-        return loss_all / len(loader.dataset)
+        return loss_all / n
 
     def val(loader):
         model.eval()
