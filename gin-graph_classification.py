@@ -13,6 +13,7 @@ from torch_geometric.nn import GINConv, global_add_pool
 from sklearn.model_selection import StratifiedKFold
 from test_tube import HyperOptArgumentParser
 from test_tube.hpc import SlurmCluster
+from ptc_dataset import PTCDataset
 
 
 def main(args, cluster=None):
@@ -48,12 +49,12 @@ def main(args, cluster=None):
                 return not (data.num_nodes == 7 and data.num_edges == 12) and data.num_nodes < 450
         path = osp.join(osp.dirname(osp.realpath(__file__)), 'data', 'PROTEINS')
         dataset = TUDataset(path, name='PROTEINS', pre_filter=MyFilter())
-    elif 'PTC' in args.dataset:
+    elif 'PTC_GIN' in args.dataset:
         class MyFilter(object):
             def __call__(self, data):
                 return True        
-        path = osp.join(osp.dirname(osp.realpath(__file__)), 'data', 'PTC')
-        dataset = TUDataset(path, name='PTC_MR', pre_filter=MyFilter())
+        path = osp.join(osp.dirname(osp.realpath(__file__)), 'data', 'PTC_GIN')
+        dataset = PTCDataset(path, name='PTC', pre_filter=MyFilter())
     else:
         raise ValueError
 
